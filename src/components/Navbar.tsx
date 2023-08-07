@@ -1,7 +1,8 @@
 "use client"
 import {useState} from 'react'
 import ButtonLink from "./ButtonLink";
-import Logo from "./Logo";
+import Logo from '@/components/assets/Logo.svg'
+import WidthTemplate from './templates/WidthTemplate';
 
 const navLink:{name:string, href: string}[] = [{
     name: "Home",
@@ -31,8 +32,11 @@ function Nav(){
 }
 
 export default function Navbar(){
-    return <header className="max-w-5xl py-6 mx-auto flex justify-between items-center border-bottom">
-        <Logo />        
+    return <header className="py-6 absolute w-full bg-blue-300">
+        <WidthTemplate appendClass='flex justify-between items-center'>
+        <Logo arial-label="Website Logo" className="text-red-400"/>
         <Nav />
+        {/* <Menubar  /> */}
+        </WidthTemplate>--
     </header>
 } 
