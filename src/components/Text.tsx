@@ -1,10 +1,17 @@
-import { cva } from 'class-variance-authority';
+import { VariantProps, cva } from 'class-variance-authority';
 import React from 'react'
 import {ComponentProps} from 'react'
 
-type Props = ComponentProps<'p'>;
+type TextProps = ComponentProps<"label"> &
+ComponentProps<"h1"> &
+ComponentProps<"h2"> &
+ComponentProps<"h3"> &
+ComponentProps<"h4"> &
+ComponentProps<"h5"> &
+ComponentProps<"h6"> &
+ComponentProps<"p">;
 
-const TextStyles = cva([""], 
+const textStyles = cva([""], 
 {variants: {
   size:{
     h1: "text-[4.209rem]",  // 67.34px
@@ -19,17 +26,28 @@ const TextStyles = cva([""],
 weight: {
   thin: "font-thin",
   extralight: "font-extralight",
-  300: "font-light",
-  400: "font-normal",
-  500: "font-semibold",
+  light: "font-light",
+  regular: "font-normal",
+  medium: "font-medium",
+  semibold: "font-semibold",
   bold: "font-bold",
   extrabold: "font-extrabold",
 }}
-} 
-
-
+}
 )
 
-export default function Text({...props}: Props) {
-  return <p {...props}/>
+type TextStylesProps = VariantProps<typeof textStyles>;
+
+export interface Props extends TextProps, Omit<TextStylesProps, 'size' | 'weight'>{
+  variant: `${NonNullable<TextStylesProps['size']>}/${NonNullable<TextStylesProps['weight']>}`,
+  appendClass?: string 
+}
+
+export default function Text({variant, appendClass,...props}: Props) {
+
+const [size, weight] = variant.split("/") as [NonNullable<TextStylesProps["size"]>, NonNullable<TextStylesProps["weight"]>];
+
+  let Text = size
+
+  return <Text className={[appendClass, textStyles({size, weight})].join(" ")} {...props}/>
 }
