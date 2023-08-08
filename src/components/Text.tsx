@@ -32,20 +32,19 @@ weight: {
   semibold: "font-semibold",
   bold: "font-bold",
   extrabold: "font-extrabold",
-}}
-}
+}}}
 )
 
 type TextStylesProps = VariantProps<typeof textStyles>;
 
 export interface Props extends TextProps, Omit<TextStylesProps, 'size' | 'weight'>{
-  variant: `${NonNullable<TextStylesProps['size']>}/${NonNullable<TextStylesProps['weight']>}`,
-  appendClass?: string 
+  variant: `${NonNullable<TextStylesProps["size"]>}/${NonNullable<TextStylesProps["weight"]>}`,
+  appendClass?: string
 }
 
-export default function Text({variant, appendClass,...props}: Props) {
+export default function Text({variant = 'p/regular', appendClass,...props}: Omit<Props, "null">) {
 
-const [size, weight] = variant.split("/") as [NonNullable<TextStylesProps["size"]>, NonNullable<TextStylesProps["weight"]>];
+const [size, weight] = variant.split("/") as [NonNullable<TextStylesProps["size"]>, TextStylesProps["weight"]];
 
   let Text = size
 
