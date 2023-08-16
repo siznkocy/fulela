@@ -32,7 +32,7 @@ function Nav(){
     const pathname = usePathname();
 
     return <nav className="flex gap-10 items-center ">
-            {navLink.map((link, i) => <ButtonLink intent={link?.intent} key={i} href={link?.href}> <Text appendClass='flex gap-2' variant='label/regular'>{link?.href === pathname ? <span className="text-accent">{" • "}</span> : <span className="text-opacity-100">{" • "}</span>}{link.name}</Text></ButtonLink>)}
+            {navLink.map((link, i) => <ButtonLink intent={link?.intent} key={i} href={link?.href}> <Text appendClass='flex gap-2' variant='label/regular'><span className={ link?.href === pathname ? "text-accent": "text-transparent"}>{" • "}</span>{link.name}</Text></ButtonLink>)}
      </nav>
 }
 

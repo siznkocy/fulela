@@ -1,6 +1,9 @@
+"use client"
+
 import React from 'react'
 import WidthTemplate from './templates/WidthTemplate'
 import ButtonLink from './ButtonLink'
+// import Logo from '@/components/assets/Logo.svg'
 import Text from './Text'
 
 const FooterLinks: {
@@ -13,35 +16,36 @@ const FooterLinks: {
         cell?: string,
         email?: string,
     }[]
-}[] = [
+}[] = 
+[
     {
     title: "Services", 
     links: [
         {
         name: "Roofing", 
         href: "/roof"
-        }, 
+        },
        {
         name: "Ceiling fitting", 
         href:"/ceiling"
-       },
+        },
        {
         name: "Doors installations", 
         href: "/doors"
-       }, 
+       },
      ]
 }, 
 {
     title: "Contact", 
     contacts: [
         {
-            title: "Sales", 
+            title:"Sales", 
             cell:"072 498 1762", 
-            email: "nkosi.docrob@gmail.com"
-           },
+            email:"nkosi.docrob@gmail.com"
+        },
         {
-        title: "Information", 
-        cell: "079 223 0803", 
+        title: "Information",
+        cell: "079 223 0803",
         email: "nkosi.sizweaubrey@gmail.com"
         }, 
        
@@ -51,7 +55,7 @@ const FooterLinks: {
     title: "Company", 
     links: [
         {
-        name: "Portfolio", 
+        name: "Portfolio",
         href: "/portfolio"
         }, 
        {
@@ -61,7 +65,6 @@ const FooterLinks: {
      ]
 }
 ]
-
 
 function FooterLink(){
     return <section className="text-white flex justify-between">
