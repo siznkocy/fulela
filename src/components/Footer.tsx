@@ -40,12 +40,12 @@ const FooterLinks: {
     contacts: [
         {
             title:"Sales", 
-            cell:"072 498 1762", 
+            cell:"(+27) 072 498 1762", 
             email:"nkosi.docrob@gmail.com"
         },
         {
         title: "Information",
-        cell: "079 223 0803",
+        cell: "(+27) 079 223 0803",
         email: "nkosi.sizweaubrey@gmail.com"
         }, 
        
@@ -78,8 +78,8 @@ function FooterLink(){
                 {main.contacts?.map((contact, i) => 
                 <li className="flex flex-col text-left" key={i}>
                     <Text>{contact.title}</Text>
-                    <ButtonLink>{contact.cell}</ButtonLink>
-                    <ButtonLink>{contact.email}</ButtonLink>
+                    <ButtonLink><Text variant='p/light'>{contact.cell}</Text></ButtonLink>
+                    <ButtonLink><Text variant="p/light">{contact.email}</Text></ButtonLink>
                 </li>)}
             </ul>
         </div>)}

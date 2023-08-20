@@ -5,7 +5,7 @@ import Navbar from "@/components/Navbar"
 export default function Home() {
   return (
    <main>
-    <section className="bg-black w-full h-screen"></section>
+    <section className="bg-gray-500 w-full h-screen"></section>
     {/* <Logo /> */}
    </main>
   )

@@ -32,14 +32,14 @@ function Nav(){
     const pathname = usePathname();
 
     return <nav className="flex gap-10 items-center ">
-            {navLink.map((link, i) => <ButtonLink intent={link?.intent} key={i} href={link?.href}> <Text appendClass='flex gap-2' variant='label/regular'><span className={ link?.href === pathname ? "text-accent": "text-transparent"}>{" • "}</span>{link.name}</Text></ButtonLink>)}
+            {navLink.map((link, i) => <ButtonLink intent={link?.intent} key={i} href={link?.href}> <Text appendClass='flex gap-2 text-white' variant='label/regular'> {link?.href === pathname && <span className={ link?.href === pathname ? "text-accent": "text-transparent"}>{" • "}</span>}{link.name}</Text></ButtonLink>)}
      </nav>
 }
 
 export default function Navbar(){
     return <header className="py-6 absolute w-full bg-blue-3b00">
         <WidthTemplate appendClass='flex justify-between items-center'>
-        <Logo arial-label="Website Logo" className=""/>
+        <Logo arial-label="Website Logo" className='text-white bg-white'/>
         <Nav />
         {/* <Menubar  /> */}
         </WidthTemplate>
